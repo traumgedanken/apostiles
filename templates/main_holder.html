@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Апостилі</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sticky-footer-navbar.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="./main_holder.html"> Апостилі <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./trusted_institutions.html">Довірені особи</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./holders.html">Держателі</a>
+            </li>
+          </ul>
+        </div>
+          <a href="./login_page.html"><button class="btn btn-outline-success my-2 my-sm-0"> Log out </button></a>
+
+        </div>
+      </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+
+      <h1 class="mt-5">Реєстр Апостилів</h1>
+
+      <input class="form-control mb-4" id="tableSearch" type="text"
+        placeholder="Введіть реєстраційний номер апостиля">
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Реєстраційний номер</th>
+            <th>Дата реєстрації</th>
+            <th>Статус</th>
+          </tr>
+        </thead>
+        <tbody id="myTable">
+          <tr>
+            <td><a href="./apostyl.html">123456</a></td>
+            <td>20 квітня 2020</td>
+            <td>доступний</td>
+          </tr>
+          <tr>
+            <td>123457</td>
+            <td>21 квітня 2020</td>
+            <td>доступний</td>
+          </tr>
+          <tr>
+            <td>123458</td>
+            <td>21 квітня 2020</td>
+            <td>заархівований</td>
+          </tr>
+          <tr>
+            <td>123459</td>
+            <td>21 квітня 2020</td>
+            <td>доступний</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="row">
+          <div class="col-12">
+             <a href="./create_apostyl.html"><button class="btn btn-outline-success">Create</button></a>
+          </div>
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">All rights reserved</span>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="css/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

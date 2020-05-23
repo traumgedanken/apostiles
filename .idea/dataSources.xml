@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="PostgreSQL - xexdpwud@isilo.db.elephantsql.com" uuid="48e5e646-deb8-4d84-9845-5fd24e2629f8">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://isilo.db.elephantsql.com:5432/xexdpwud</jdbc-url>
+    </data-source>
+  </component>
+</project>
