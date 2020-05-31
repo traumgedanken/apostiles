@@ -1,0 +1,73 @@
+{% extends "template.html" %}
+{%  block content %}
+<h1 class="mt-5">Особи та органи, які можуть завіряти апостилі</h1>
+<div class="row">
+    <div class="col">
+        <form class="form-row" action="/trusted/search" method="post">
+            <div class="col">
+                <input required name="query" value="{{s}}" type="text" class="form-control"
+                       placeholder="Введіть дані для пошуку">
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary mb-2">Пошук</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-auto">
+        <a href="/trusted/create_person">
+            <button class="btn btn-outline-success">Створити особу</button>
+        </a>
+    </div>
+    <div class="col">
+        <a href="/trusted/create_institution">
+            <button class="btn btn-outline-success">Створити організацію</button>
+        </a>
+    </div>
+</div>
+
+<br/>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Тип</th>
+        <th>Інформація</th>
+        <th>Розташування</th>
+        <th>Печатка</th>
+        <th>Підпис</th>
+    </tr>
+    </thead>
+    <tbody id="myTable2">
+    {% for tr in trs %}
+    <tr>
+        <td>
+            {{tr['type']}}
+            <form class="form-inline" action="{{tr['change_state_url']}}?url={{url}}" method="post">
+                {%if tr['is_archived'] == '+' %}
+                <button type="submit" class="btn btn-sm btn-outline-warning">Розархівувати</button>
+                {% else %}
+                <button type="submit" class="btn btn-sm btn-outline-success">Заархівувати</button>
+                {% endif %}
+            </form>
+        </td>
+        <td>
+            <p>{{tr['person_name']}}</p>
+            <p><i>{{tr['description']}}</i></p>
+        </td>
+        <td>{{tr['location']}}</td>
+        <td>{{tr['stamp_info']}}</td>
+        <td><img src="{{tr['sign_image_url']}}" style="width: 100px; height: 100px"/></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% for page in range(1, pages[-1] + 1) %}
+        <li class="page-item{% if page == pages[0] %} active{% endif %}">
+            <a class="page-link" href="/trusted?page={{page}}&search={{s}}">{{page}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+{% endblock %}

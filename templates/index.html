@@ -1,0 +1,30 @@
+{% extends "template.html" %}
+{%  block content %}
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="text-center">
+    <form action="/apostile_search" method="post">
+        <div class="row">
+            <div class="col-4 form-group">
+                <label for="apostyl_id">Реєстраційний номер</label>
+                <input required name="id" max="9999999999" type="number" class="form-control" id="apostyl_id" placeholder="Введіть реєстраційний номер">
+            </div>
+            <div class="col-4 form-group">
+                <label for="name_trusted">Дата реєстрації</label>
+                <input required name="date" type="date" class="form-control" id="name_trusted">
+            </div>
+        </div>
+        <div class="col-4 form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

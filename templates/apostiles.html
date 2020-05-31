@@ -1,10 +1,10 @@
 {% extends "template.html" %}
 {%  block content %}
-<h1 class="mt-5">Держателі реєстру</h1>
+<h1 class="mt-5">Реєстр Апостилів</h1>
 
 <div class="row">
     <div class="col">
-        <form class="form-row" action="/holder/search" method="post">
+        <form class="form-row" action="/apostile/search" method="post">
             <div class="col">
                 <input required name="query" value="{{s}}" type="text" class="form-control"
                        placeholder="Введіть дані для пошуку">
@@ -15,34 +15,29 @@
         </form>
     </div>
     <div class="col">
-        <a href="/holder/create">
-            <button class="btn btn-outline-success">Додати держателя</button>
-        </a>
+        <div class="col">
+            <a href="/apostile/create">
+                <button class="btn btn-outline-success">Створити</button>
+            </a>
+        </div>
     </div>
 </div>
 
+{%if aps %}
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
-        <th>Email</th>
-        <th>Ім'я</th>
+        <th>Реєстраційний номер</th>
+        <th>Дата реєстрації</th>
         <th>Статус</th>
     </tr>
     </thead>
-    <tbody id="myTable2">
-    {% for h in holders %}
+    <tbody id="myTable">
+    {% for ap in aps %}
     <tr>
-        <td>{{h.email}}</td>
-        <td>{{h.name}}</td>
-        <td>
-            <form class="form-inline" action="/holder/update/{{h.id}}?url={{url}}" method="post">
-                {%if h.is_active %}
-                <button type="submit" class="btn btn-sm btn-outline-success">Деактивувати</button>
-                {% else %}
-                <button type="submit" class="btn btn-sm btn-outline-warning">Ативувати</button>
-                {% endif %}
-            </form>
-        </td>
+        <td><a href="/apostile/{{ap.id}}">{{ap.number}}</a></td>
+        <td>{{ap.date}}</td>
+        <td>{%if ap.is_archived %}заархівований{%else%}доступний{%endif%}</td>
     </tr>
     {% endfor %}
     </tbody>
@@ -52,10 +47,13 @@
     <ul class="pagination">
         {% for page in range(1, pages[-1] + 1) %}
         <li class="page-item{% if page == pages[0] %} active{% endif %}">
-            <a class="page-link" href="/holder?page={{page}}&search={{s}}">{{page}}</a>
+            <a class="page-link" href="/apostile?page={{page}}&search={{s}}">{{page}}</a>
         </li>
         {% endfor %}
     </ul>
 </nav>
+{% else %}
+<h3>Нічого не знайдено</h3>
+{% endif %}
 
 {% endblock %}

@@ -1,0 +1,53 @@
+{% extends "template.html" %}
+{%  block content %}
+<br/>
+<form class="form" action="/apostile/create" method="post">
+    <label for="country">Країна походження документу:</label>
+    <input required pattern="^[ a-zA-Zа-яА-ЯіІ,.]+$" id="country" name="country" class="form-control col-4" type="text"
+           placeholder="Введіть країну">
+    <br/>
+
+    <label for="doc_date">Дата видачі документу:</label>
+    <input required pattern="^[ a-zA-Zа-яА-ЯіІ,.]+$" id="doc_date" name="doc_date" class="form-control col-4"
+           type="date"
+           placeholder="Введіть дату">
+    <br/>
+
+    <label for="person_name">Документ підписаний:</label>
+    <input required pattern="^[ a-zA-Zа-яА-ЯіІ,.]+$" id="person_name" name="person_name" class="form-control col-4"
+           type="text" placeholder="Введіть ПІБ">
+    <br/>
+
+    <label for="person_position">У якості:</label>
+    <input required pattern="^[ a-zA-Zа-яА-ЯіІ,.]+$" id="person_position" name="person_position"
+           class="form-control col-4"
+           type="text" placeholder="Введіть посаду">
+    <br/>
+
+    <label for="stamp_info">Штамп на документі:</label>
+    <input id="stamp_info" name="stamp_info" class="form-control col-4"
+           type="text" placeholder="Введіть інформацію про штамп">
+    <br/>
+    <br/>
+
+    <label for="number">Реєстраціний номер апостилю:</label>
+    <input required max="9999999999" id="number" name="number" class="form-control col-4"
+           type="number" placeholder="Введіть номер">
+    <br/>
+
+    <label for="ap_date">Дата проставлення апостилю:</label>
+    <input required id="ap_date" name="ap_date" class="form-control col-4" type="date"
+           placeholder="Введіть дату">
+    <br/>
+
+    <label for="exampleFormControlSelect1">Апостиль завірено:</label>
+    <select class="form-control col-4" id="exampleFormControlSelect1" name="ap_author">
+        {% for tr in trs %}
+        <option>{{tr}}</option>
+        {% endfor %}
+    </select>
+    <br/>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "template.html" %}
+{%  block content %}
+{% if ap.is_archived %}<h3>ЗААРХІВОВАНО</h3>{% endif %}
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr class="d-flex">
+        <th class="text-center col-12">
+            <p>Apostille</p>
+            <p>Апостиль</p>
+            <p>(convention de La Haye du 5 octobre 1961)</p>
+        </th>
+    </tr>
+    </thead>
+    <tbody id="myTable">
+    <tr class="d-flex">
+        <td class="col-3">1. Країна</td>
+        <td class="col-9">{{ doc.country }}</td>
+    </tr>
+    <tr class="d-flex">
+        <td class="col-3">2. дата видачі</td>
+        <td class="col-9">{{ doc.date }}</td>
+    </tr>
+    <tr class="d-flex">
+        <td class="col-3">3. підписаний</td>
+        <td class="col-9">{{ doc.author_name }}</td>
+    </tr>
+
+    <tr class="d-flex">
+        <td class="col-3">4. у якості</td>
+        <td class="col-9">{{ doc.author_info }}</td>
+    </tr>
+    <tr class="d-flex">
+        <td class="col-3">5. містить</br>проставлену</br>печатку/</br>штамп</td>
+        <td class="col-9">{{ doc.stamp_info }}
+        </td>
+    </tr>
+    <tr class="d-flex">
+        <td class="text-center col-12">Підтверджено</td>
+    </tr>
+    <tr class="d-flex">
+        <td class="col-3">6. в</td>
+        <td class="col-4">{{ tr['location'] }}</td>
+        <td class="col-2">7. Дата</td>
+        <td class="col-3">{{ ap.date }}</td>
+    </tr>
+    <tr class="d-flex">
+        <td class="col-3">8. ким</td>
+        <td class="col-9">
+            <p>{{ tr['person_name'] }}</p>
+            <p><i>{{ tr['description'] }}</i></p>
+        </td>
+    </tr>
+    <tr class="d-flex">
+        <td class="col-3">9. за №</td>
+        <td class="col-9"> {{ ap.number }}</td>
+    </tr>
+
+    <tr class="d-flex">
+        <td class="col-7">10. Печатка / штамп</td>
+        <td class="col-5">12. Підпис</td>
+    </tr>
+
+    <tr class="d-flex">
+        <td class="col-7"> {{ tr['stamp_info'] }}</td>
+        <td class="col-5"><img style="width: 300px" class="col-12" src="{{ tr['sign_image_url'] }}">
+        </td>
+    </tr>
+    </tbody>
+
+</table>
+{% if logged %}
+<div class="row justify-content-center">
+    <form class="col-2" action="/apostile/{{ap.id}}/change" method="post">
+        {%if ap.is_archived %}
+        <button type="submit" class="col-12 btn btn-outline-success ">Розархівувати</button>
+        {% else %}
+        <button type="submit" class="col-12 btn btn-outline-warning ">Заархівувати</button>
+        {% endif %}
+    </form>
+</div>
+{% endif %}
+{% endblock %}

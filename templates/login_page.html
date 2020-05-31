@@ -11,26 +11,24 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
+    <link href="static/css/signin.css" rel="stylesheet">
   </head>
 
   <body class="text-center">
-    <form class="form-signin" action="./main_holder.html">
+    <form class="form-signin" action="/login" method="post">
       <img class="mb-4" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hotpng.com%2Ffree-png-clipart-etuog&psig=AOvVaw1gqp_-BoJGyVpF1rK9FudV&ust=1589783872672000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIDO7c6kuukCFQAAAAAdAAAAABAD" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Будь ласка, авторизуйтесь</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Електронна пошта" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Пароль" required>
       <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
+        <span style="color: red">{{ msg }}</span>
       </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit"> Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Увійти</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
     </form>
   </body>

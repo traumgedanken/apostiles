@@ -1,0 +1,39 @@
+{% extends "template.html" %}
+{%  block content %}
+<form action="/trusted/create_person" method="post" enctype="multipart/form-data">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr class="d-flex">
+            <th class="text-center col-12"> Інформація про особу, що завіряє документи</th>
+        </tr>
+        </thead>
+        <tbody id="myTable4">
+        <tr class="d-flex">
+            <td class="col-3">ПІБ особи</td>
+            <td class="col-9"><input required pattern="^[ a-zA-Zа-яА-ЯіІ,.]+$" maxlength="50" type="text" class="form-control" name="name" placeholder="Введіть ПІБ">
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3">Місцезнаходження</td>
+            <td class="col-9"><input type="text" maxlength="50" class="form-control" name="location" placeholder="Введіть місцезнаходження"></td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3">Номер ліцензії</td>
+            <td class="col-9"><input type="number" max="9999999999" class="form-control" name="license" placeholder="Введіть номер ліцензії"></td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3">Інформація про печатку</td>
+            <td class="col-9"><input type="text" pattern="^[ a-zA-Zа-яА-ЯіІ,.]+$" maxlength="50" class="form-control" name="stamp_info" placeholder="Введіть інформацію про печатку"></td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3">Зразок підпису</td>
+            <td class="col-9">
+                <input type="file" class="form-control-file" name="sign_image">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
