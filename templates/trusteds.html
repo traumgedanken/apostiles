@@ -5,7 +5,7 @@
     <div class="col">
         <form class="form-row" action="/trusted/search" method="post">
             <div class="col">
-                <input required name="query" value="{{s}}" type="text" class="form-control"
+                <input name="query" value="{{s}}" type="text" class="form-control"
                        placeholder="Введіть дані для пошуку">
             </div>
             <div class="col">
@@ -50,7 +50,7 @@
             </form>
         </td>
         <td>
-            <p>{{tr['person_name']}}</p>
+            <p><a href="{{tr['edit_url']}}?redirect={{url}}">{{tr['person_name']}}</a></p>
             <p><i>{{tr['description']}}</i></p>
         </td>
         <td>{{tr['location']}}</td>

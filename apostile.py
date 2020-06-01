@@ -44,7 +44,7 @@ def get(apostile_id):
 
 
 @app.route('/apostile/<int:apostile_id>/change', methods=['POST'])
-@allowed_roles(['holder'])
+@allowed_roles(['holder', 'admin'])
 def archive(apostile_id):
     apostile = session.query(Apostile).filter(Apostile.id == apostile_id).first()
     apostile.is_archived = not apostile.is_archived
@@ -53,7 +53,7 @@ def archive(apostile_id):
 
 
 @app.route('/apostile')
-@allowed_roles(['holder'])
+@allowed_roles(['holder', 'admin'])
 def list_all():
     per_page = 10
     page = int(request.args.get('page', 1))
@@ -68,14 +68,14 @@ def list_all():
 
 
 @app.route('/apostile/search', methods=['POST'])
-@allowed_roles(['holder'])
+@allowed_roles(['holder', 'admin'])
 def search_post():
     query = request.form.get('query')
     return redirect(f'/apostile?search={query}')
 
 
 @app.route('/apostile/create')
-@allowed_roles(['holder'])
+@allowed_roles(['holder', 'admin'])
 def apostile_create():
     trs = list(session.query(TrustedInstitution).filter(TrustedInstitution.is_archived == False).all()) + \
           list(session.query(TrustedPerson).filter(TrustedPerson.is_archived == False).all())
@@ -95,7 +95,7 @@ def find_trusted_by_str(data):
 
 
 @app.route('/apostile/create', methods=['POST'])
-@allowed_roles(['holder'])
+@allowed_roles(['holder', 'admin'])
 def apostile_create_post():
     count = session.query(Apostile).filter(Apostile.number == int(request.form['number'])).count()
     if count:

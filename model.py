@@ -67,6 +67,7 @@ class TrustedInstitution(BaseClass):
             'sign_image_url': self.sign_image_url,
             'stamp_info': self.stamp_info,
             'change_state_url': f'/trusted/institution/change/{self.id}',
+            'edit_url': f'/trusted/institution/edit/{self.id}',
             'is_archived': '+' if self.is_archived else '-'
         }
 
@@ -94,6 +95,7 @@ class TrustedPerson(BaseClass):
             'sign_image_url': self.sign_image_url,
             'stamp_info': self.stamp_info,
             'change_state_url': f'/trusted/person/change/{self.id}',
+            'edit_url': f'/trusted/person/edit/{self.id}',
             'is_archived': '+' if self.is_archived else '-'
         }
 

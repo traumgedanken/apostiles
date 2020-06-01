@@ -1,0 +1,39 @@
+{% extends "template.html" %}
+{%  block content %}
+<form action="/trusted/person/edit/{{tr.id}}?redirect={{redirect}}" method="post" enctype="multipart/form-data">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr class="d-flex">
+            <th class="text-center col-12">Нова інформація про особу, що завіряє документи</th>
+        </tr>
+        </thead>
+        <tbody id="myTable4">
+        <tr class="d-flex">
+            <td class="col-3">ПІБ особи</td>
+            <td class="col-9"><input disabled type="text" class="form-control" name="name" placeholder="Введіть ПІБ" value="{{tr.person_name}}">
+            </td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3">Місцезнаходження</td>
+            <td class="col-9"><input value="{{tr.location}}" type="text" maxlength="50" class="form-control" name="location" placeholder="Введіть місцезнаходження"></td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3">Номер ліцензії</td>
+            <td class="col-9"><input value="{{tr.licence_number}}" type="number" max="9999999999" class="form-control" name="license" placeholder="Введіть номер ліцензії"></td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3">Інформація про печатку</td>
+            <td class="col-9"><input type="text" value="{{tr.stamp_info}}" pattern="^[ a-zA-Zа-яА-ЯіІ,./-]+$" maxlength="50" class="form-control" name="stamp_info" placeholder="Введіть інформацію про печатку"></td>
+        </tr>
+        <tr class="d-flex">
+            <td class="col-3">Зразок підпису</td>
+            <td class="col-9">
+                <input type="file" class="form-control-file" name="sign_image">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Оновити</button>
+</form>
+{% endblock %}

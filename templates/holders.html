@@ -6,7 +6,7 @@
     <div class="col">
         <form class="form-row" action="/holder/search" method="post">
             <div class="col">
-                <input required name="query" value="{{s}}" type="text" class="form-control"
+                <input name="query" value="{{s}}" type="text" class="form-control"
                        placeholder="Введіть дані для пошуку">
             </div>
             <div class="col">
@@ -33,7 +33,7 @@
     {% for h in holders %}
     <tr>
         <td>{{h.email}}</td>
-        <td>{{h.name}}</td>
+        <td><a href="/holder/edit/{{h.id}}?redirect={{url}}">{{h.name}}</a></td>
         <td>
             <form class="form-inline" action="/holder/update/{{h.id}}?url={{url}}" method="post">
                 {%if h.is_active %}

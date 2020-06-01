@@ -49,7 +49,7 @@ def user_menu():
     if not user_is_logged():
         return [], []
     if current_user.role == 'admin':
-        return [('Держателі', '/holder')]
+        return [('Апостилі', '/apostile'), ('Довірені особи', '/trusted'), ('Держателі', '/holder')]
     if current_user.role == 'holder':
         return [('Апостилі', '/apostile'), ('Довірені особи', '/trusted')]
 

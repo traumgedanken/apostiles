@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+{%  block content %}
+<br/>
+<form action="/holder/edit/{{h.id}}?redirect={{redirect}}" method="post">
+
+    <h1 class="text-center">Редагування держателя</h1>
+    <br/>
+    <br/>
+    <br/>
+    <label for="holder_name">Ім'я</label>
+    <input required pattern="^[ a-zA-Zа-яА-ЯіІ,.]+$" maxlength="50" type="text" class="form-control col-4"
+           id="holder_name" name="name" placeholder="Введіть ім'я" value="{{h.name}}">
+    <br/>
+
+    <label for="holder_email">Email</label>
+    <input required type="email" class="form-control col-4" name="email" id="holder_email"
+           placeholder="Введіть адресу електронної пошту" value="{{h.email}}">
+    <br/>
+
+    <label for="holder_pass">Пароль</label>
+    <input minlength="8" type="password" class="form-control col-4" name="pass" id="holder_pass"
+           placeholder="Залиште пустим, щоб не змінювати">
+    <br/>
+
+    <button type="submit" class="btn btn-primary">Оновити</button>
+
+</form>
+{% endblock %}
