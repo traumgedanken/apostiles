@@ -63,11 +63,14 @@ def allowed_roles(roles):
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
-            if not user_is_logged() or current_user.role not in roles:
-                return render_template('message.html', title='Посилка доступу',
-                                       msg=f'В доступі відмовлено', **user_config())
-            print(current_user.is_active)
+            if not user_is_logged():
+                return render_template('message.html', title='Помилка доступу',
+                                       msg=f'В доступі відмовлено', **user_config()), 401
+            if current_user.role not in roles:
+                return render_template('message.html', title='Помилка доступу',
+                                       msg=f'В доступі відмовлено', **user_config()), 403
             if not current_user.is_active:
+                logout_user()
                 return render_template('login_page.html', msg='Ваш акаунт деактивовано')
 
             return func(*args, **kwargs)
